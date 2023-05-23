@@ -1,0 +1,15 @@
+var express = require('express');
+var app = express();
+
+var bodyParser = re
+
+app.get('/register', function(req, res){
+    res.sendFile(__dirname + '/register.html');
+});
+
+app.post('/register', function(req, res){
+
+
+});
+
+app.listen(7000);

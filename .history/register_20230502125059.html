@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="boxicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="register.css">
+    <title>Register</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="#"><img src="../img/logo.png" alt="logo"></a>
+        </div>
+        <div class="nav-bar">
+            <ul>
+                <li class="menu menu-product">Product</li>
+                <li class="menu menu-about">About</li>
+                <li class="menu menu-faq">FAQ</li>
+                <li class="menu menu-service">Service</li>
+                <li class="menu menu-blog">Blog</li>
+            </ul>
+        </div>
+
+        <div class="traidat">
+            <img src="../img/img4.png" alt="">
+        </div>
+        
+        <div class="register">
+            <a href="#" class="register-text">
+                Login
+            </a>
+        </div>
+            
+    </header>
+    <div class="container">
+        <div class="register-border">
+            <h1>
+                Register
+            </h1>
+            <form id="form-reg" class="form-reg" name="formreg" action="/register" method="post">
+                <div class="form">
+                    <div class="form-left">
+                        <div class="formgroup">
+                            <!-- <label for="fullname">Full Name</label> -->
+                            <input type="text" name="fullname" class="formcontrol" id="fullname" placeholder="Enter your Fullname">
+                        </div>
+        
+                        <div class="formgroup">
+                            <!-- <label for="username">User Name</label> -->
+                            <input type="text" name="username" class="formcontrol" id="username" placeholder="Enter your Username">
+                        </div>
+
+                        <div class="formgroup">
+                            <!-- <label for="email">Email</label> -->
+                            <input type="text" name="email" class="formcontrol" id="email" placeholder="Enter your Email">
+                        </div>
+        
+                    </div>
+    
+                    <div class="form-right">                       
+
+                        <div class="formgroup">
+                            <!-- <label for="password">Password</label> -->
+                            <input type="password" name="password" class="formcontrol" id="password" autocomplete="off" placeholder="Enter your Password">
+                        </div>
+
+                        <div class="formgroup">
+                            <!-- <label for="confirmpassword">Password again</label> -->
+                            <input type="password" name="confirmpassword" class="formcontrol" id="confirmpassword" autocomplete="off" placeholder="Enter your Password Confirm">
+                        </div>
+                        
+                        <div class="formgroup">
+                            <!-- <label class="address" for="address">Address</label> -->
+                            <input type="text" name="address" class="formcontrol input-address" id="address" placeholder="Enter your Address">
+                        </div>
+                    </div>  
+                </div>
+                <div class="register-text-btn">                            
+                    <button type="submit" onclick="return checkform()" id="input-signup">Register</button>
+                    <p class="text-log">I don't have any account<a href="/login" class="text-login">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function checkform(){
+            var fullname = document.getElementById("fullname");
+            var username = document.getElementById("username");
+            var email = document.getElementById("email");
+            var password = document.getElementById("password");
+            var username = document.getElementById("username");
+            var address = document.getElementById("address");
+            var country = document.getElementById("country");
+
+            // Fullname-------------------------
+            if (fullname.value != "") {
+                if (fullname.value.length < 5) {
+                    fullname.style.border = "2px solid red";
+                    document.getElementById('fullname').style.color = "red";
+                    alert("Fullname must be at least 6 characters");
+                    fullname.focus();
+                    return false;
+                }
+            }
+            else {
+                fullname.style.border = "2px solid red";
+                document.getElementById('fullname').style.color = "red";
+                alert("Fullname is required");
+                fullname.focus();
+                return false;
+            }
+
+            // Username-------------------------
+            if (username.value != "") {
+                if (username.value.length < 3) {
+                    username.style.border = "2px solid red";
+                    document.getElementById('username').style.color = "red";
+                    alert("Username must be at least 3 characters");
+                    username.focus();
+                    return false;
+                }
+            }
+            else {
+                username.style.border = "2px solid red";
+                document.getElementById('username').style.color = "red";
+                alert("Username is required");
+                username.focus();
+                return false;
+            }
+
+            // Email-------------------------
+            if (email.value != "") {
+                
+            }
+            else {
+                email.style.border = "2px solid red";
+                document.getElementById('email').style.color = "red";
+                alert("Email is required");
+                email.focus();
+                return false;
+            }
+
+            // Password-------------------------
+            if (password.value != "") {
+                if (password.value.length < 3) {
+                    password.style.border = "2px solid red";
+                    document.getElementById('password').style.color = "red";
+                    alert("Password must be at least 4 characters");
+                    password.focus();
+                    return false;
+                }
+            }
+            else {
+                password.style.border = "2px solid red";
+                document.getElementById('password').style.color = "red";
+                alert("Password is required");
+                password.focus();
+                return false;
+            }
+
+            // Password Confirm------------------
+            if (confirmpassword.value != "") {
+                if (confirmpassword.value != password.value) {
+                    confirmpassword.style.border = "2px solid red";
+                    document.getElementById('password').style.color = "red";
+                    password.style.border = "2px solid red";
+                    document.getElementById('password').style.color = "red";
+                    alert("The two passwords do not match");
+                    confirmpassword.focus();
+                    password.focus();
+                    return false;
+                }
+            }
+            else {
+                confirmpassword.style.border = "2px solid red";
+                document.getElementById('confirmpassword').style.color = "red";
+                alert("Password Confirm is required");
+                confirmpassword.focus();
+                return false;
+            }
+
+            // Address-------------------------
+            if (address.value != "") {
+                
+            }
+            else {
+                address.style.border = "2px solid red";
+                document.getElementById('address').style.color = "red";
+                alert("Address is required");
+                address.focus();
+                return false;
+            }
+        }
+
+    </script> 
+</body>
+</html>

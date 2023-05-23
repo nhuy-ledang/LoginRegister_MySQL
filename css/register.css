@@ -298,3 +298,6 @@ input{
     flex-flow: column;
 }
 
+.container{
+    margin-top: 60px;
+}
